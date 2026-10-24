@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", "Noto Sans Arabic", sans-serif;
+  --font-sans: "Public Sans", "Noto Sans Arabic", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-urdu: "Noto Nastaliq Urdu", "Noto Sans Arabic", serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  [dir="rtl"] .urdu-prose {
+    font-family: var(--font-urdu);
+    line-height: 2.1;
+  }
+
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3 {
+    font-family: "Noto Sans Arabic", var(--font-display);
+    line-height: 1.45;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
